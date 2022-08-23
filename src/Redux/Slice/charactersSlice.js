@@ -5,7 +5,7 @@ export const fetchCharacters = createAsyncThunk(
   "characters/getCharacters",
   async () => {
     const res = await axios(
-      `${process.env.REACT_APP_API_BASE_ENDPOINT}/characters?limit=10&offset=0`
+      `${process.env.REACT_APP_API_BASE_ENDPOINT}/characters?limit=12&offset=0`
     );
     return res.data;
   }
