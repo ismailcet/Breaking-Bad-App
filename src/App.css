@@ -12,12 +12,41 @@ body {
   color: #fff;
   font-family: Arial, Helvetica, sans-serif;
 }
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 4rem;
+}
 .char_cards {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 2rem;
+  padding: 0 2rem;
+  margin-bottom: 2rem;
+}
+.char_card {
+  padding: 1rem;
+  border-radius: 1rem;
+  background: linear-gradient(
+    180deg,
+    rgba(17, 45, 23, 1) 0%,
+    rgba(0, 0, 0, 1) 100%
+  );
+  transition: all 0.3s linear;
+}
+.char_card:hover {
+  box-shadow: 3px 3px 8px rgba(17, 45, 23, 1);
 }
 .char_img {
   width: 400px;
   height: 400px;
+}
+.char_name {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.style-custom {
+  color: #112d17;
 }
