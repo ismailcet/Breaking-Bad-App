@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-// import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchCharacters } from "../../Redux/Slice/charactersSlice";
 import CharacterCard from "../../Components/CharacterCard";
 import Header from "../../Components/Header";
-
+import LoadingPage from "../Loading/LoadingPage";
 import SweetPagination from "sweetpagination";
 
 const Index = () => {
@@ -22,15 +22,22 @@ const Index = () => {
     <div className="home_page">
       <Header />
 
-      <div className="char_cards">
-        {loading ? (
-          <h1>Loading...</h1>
-        ) : (
-          currentPageData.map((character) => (
-            <CharacterCard character={character} key={character.char_id} />
-          ))
-        )}
-      </div>
+      {loading ? (
+        <LoadingPage />
+      ) : (
+        <div className="char_cards">
+          {currentPageData.map((character) => (
+            <Link
+              to={`/char/${character.char_id}`}
+              style={{ textDecoration: "none", color: "white" }}
+              key={character.char_id}
+            >
+              <CharacterCard character={character} />
+            </Link>
+          ))}
+        </div>
+      )}
+
       <SweetPagination
         currentPageData={setCurrentPageData}
         dataPerPage={12}
